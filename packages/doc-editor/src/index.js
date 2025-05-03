@@ -1,10 +1,4 @@
-// import DocEditor from "./editors/docEditor";
-// import RteEditor from './editors/rte';
-// import ChatPanel from './editors/chatpanel';
-import DocEditor from "./editors/docEditor/DocEditor";
 
-export { DocEditor };
+import RichTextEditor from "./editors/docEditor/DocEditor";
 
-// export { DocEditor };
-// export { RteEditor };
-// export { ChatPanel };
+export { RichTextEditor };
