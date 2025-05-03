@@ -16,18 +16,7 @@ import { $isListNode } from "@lexical/list";
 import IconButton from "../../components/IconButton";
 import {Button} from "../../components/Button"
 import { $findMatchingParent } from "@lexical/utils";
-import {
-  TextAlignCenterOutlined,
-  TextAlignLeftOutlined,
-  TextAlignRightOutlined,
-  TextBoldOutlined,
-  ItalicsOutlined,
-  TextUnderlinedOutlined,
-  TextIndentOutlined,
-  TextOutdentOutlined,
-  TextAlignJustifiedOutlined,
-  CaretDownFilled,
-} from "@toddle-edu/ds-icons";
+import { AlignCenter, AlignLeft, AlignRight,Bold, Italic, Underline, IndentIncrease, IndentDecrease, AlignJustify, ChevronDown  } from 'lucide-react';
 import { $isHeadingNode } from "@lexical/rich-text";
 import { $isCodeNode } from "@lexical/code";
 import { LexicalBlockMapping } from "../../constants/mappings/LexicalBlockMapping";
@@ -208,7 +197,7 @@ export default function ToolbarPlugin() {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <TextAlignLeftOutlined />
+                <AlignLeft />
               </span>
               <span className={"text"}>Left align</span>
             </div>
@@ -228,7 +217,7 @@ export default function ToolbarPlugin() {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <TextAlignCenterOutlined />
+                <AlignCenter />
               </span>
               <span className={"text"}>Center align</span>
             </div>
@@ -248,7 +237,7 @@ export default function ToolbarPlugin() {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <TextAlignRightOutlined />
+                <AlignRight />
               </span>
               <span className={"text"}>Right align</span>
             </div>
@@ -268,7 +257,7 @@ export default function ToolbarPlugin() {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <TextAlignJustifiedOutlined />
+                <AlignJustify />
               </span>
               <span className={"text"}>Justify align</span>
             </div>
@@ -290,7 +279,7 @@ export default function ToolbarPlugin() {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <TextOutdentOutlined />
+                <IndentDecrease />
               </span>
               <span className={"text"}>Outdent</span>
             </div>
@@ -308,7 +297,7 @@ export default function ToolbarPlugin() {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <TextIndentOutlined />
+                <IndentIncrease />
               </span>
               <span className={"text"}>Indent</span>
             </div>
@@ -337,7 +326,7 @@ export default function ToolbarPlugin() {
                   </span>
                   <span className={"text"}>Insert</span>
                 </div>
-                <CaretDownFilled />
+                <ChevronDown />
               </div>
             </Button>
           );
@@ -352,7 +341,7 @@ export default function ToolbarPlugin() {
             <Button variant="neutral" type="plain" dsVersion="2.0" size="small">
               <div className={"tde-dropdown-btn"}>
                 {LexicalBlockMapping[blockType]?.jsx ?? blockType}
-                <CaretDownFilled />
+                <ChevronDown />
               </div>
             </Button>
           );
@@ -369,12 +358,12 @@ export default function ToolbarPlugin() {
             <Button variant="neutral" type="plain" dsVersion="2.0" size="small">
               <div className={"tde-dropdown-btn"}>
                 {{
-                  left: <TextAlignLeftOutlined />,
-                  center: <TextAlignCenterOutlined />,
-                  right: <TextAlignRightOutlined />,
-                  justify: <TextAlignJustifiedOutlined />,
-                }[alignment] ?? <TextAlignLeftOutlined />}
-                <CaretDownFilled />
+                  left: <AlignLeft />,
+                  center: <AlignCenter />,
+                  right: <AlignRight />,
+                  justify: <AlignJustify />,
+                }[alignment] ?? <AlignLeft />}
+                <ChevronDown />
               </div>
             </Button>
           );
@@ -396,7 +385,7 @@ export default function ToolbarPlugin() {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<TextBoldOutlined />}
+        icon={<Bold />}
         onClick={() => formatText("bold")}
         isActivated={textFormat.isBold}
         size="small"
@@ -406,7 +395,7 @@ export default function ToolbarPlugin() {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<ItalicsOutlined />}
+        icon={<Italic />}
         onClick={() => formatText("italic")}
         isActivated={textFormat.isItalic}
         size="small"
@@ -416,7 +405,7 @@ export default function ToolbarPlugin() {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<TextUnderlinedOutlined />}
+        icon={<Underline />}
         onClick={() => formatText("underline")}
         isActivated={textFormat.isUnderline}
         size="small"

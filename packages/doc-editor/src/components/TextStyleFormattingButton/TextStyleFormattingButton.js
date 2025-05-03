@@ -1,7 +1,7 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
 import React, { useEffect, useState } from "react";
-import { CaretDownFilled, DeleteOutlined } from "@toddle-edu/ds-icons";
+import {ChevronDown, Trash2 } from 'lucide-react';
 import DropDown from "../DropDown";
 import { $getSelection, $isRangeSelection, FORMAT_TEXT_COMMAND } from "lexical";
 
@@ -149,7 +149,7 @@ const TextStyleFormattingButton = () => {
           >
             <div className={"tde-toolbar-heading-block"}>
               <span className={"icon"}>
-                <DeleteOutlined />
+                <Trash2 />
               </span>
               <span className={"text"}>Clear formatting</span>
             </div>
@@ -165,7 +165,7 @@ const TextStyleFormattingButton = () => {
         <button  type="button" >
           <div className={"tde-dropdown-btn"}>
             <TextCaseOutlined />
-            <CaretDownFilled />
+            <ChevronDown />
           </div>
         </button>
       )}

@@ -8,7 +8,7 @@ import { clearFormatting } from "../../utils/toolbarUtils";
 import DropDown from "../DropDown";
 
 import "./styles.scss";
-import { CaretDownFilled } from "@toddle-edu/ds-icons";
+import { ChevronDown } from 'lucide-react';
 import { MinusSquareOutlined, TextColorOutlined } from "../../assets/icons";
 
 const DEFAULT_FONT_COLOR = "#000000";
@@ -138,7 +138,7 @@ const FontColorPickerButton = () => {
                 style={{ "--font-color": fontColor }}
               />
             </div>
-            <CaretDownFilled />
+            <ChevronDown />
           </div>
         </button>
       )}

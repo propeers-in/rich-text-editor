@@ -8,7 +8,7 @@ import "./styles.scss";
 import FontHighlightGridValues from "./FontHighlightGridVals";
 import { $getSelection, $isRangeSelection } from "lexical";
 import { $patchStyleText } from "@lexical/selection";
-import { CaretDownFilled } from "@toddle-edu/ds-icons";
+import { ChevronDown } from 'lucide-react';
 import { HighlighterOutlined, MinusSquareOutlined } from "../../assets/icons";
 
 const DEFAULT_FONT_COLOR = "rgb(255,196,0)";
@@ -137,7 +137,7 @@ const FontHighlighterButton = () => {
                 style={{ "--font-color": fontColor }}
               />
             </div>
-            <CaretDownFilled />
+            <ChevronDown />
           </div>
         </button>
       )}

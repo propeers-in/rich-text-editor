@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  ChecklistOutlined,
-  HeadingOneOutlined,
-  HeadingThreeOutlined,
-  HeadingTwoOutlined,
-  ListBulletedOutlined,
-  ListNumberedOutlined,
-  TextTOutlined,
-} from "@toddle-edu/ds-icons";
+import { ListCheck,Heading1,Heading2,Heading3, List, ListOrdered, Text   } from 'lucide-react';
 
 import "./styles.scss";
 
@@ -18,7 +10,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <TextTOutlined />
+          <Text />
         </span>
         <span className={"text"}>Paragraph</span>
       </div>
@@ -30,7 +22,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <HeadingOneOutlined />
+          <Heading1 />
         </span>
         <span className={"text"}>Heading 1</span>
       </div>
@@ -42,7 +34,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <HeadingTwoOutlined />
+          <Heading2 />
         </span>
         <span className={"text"}>Heading 2</span>
       </div>
@@ -54,7 +46,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <HeadingThreeOutlined />
+          <Heading3 />
         </span>
         <span className={"text"}>Heading 3</span>
       </div>
@@ -66,7 +58,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <ListBulletedOutlined />
+          <List />
         </span>
         <span className={"text"}>Bullet List</span>
       </div>
@@ -78,7 +70,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <ListNumberedOutlined />
+          <ListOrdered />
         </span>
         <span className={"text"}>Numbered List</span>
       </div>
@@ -90,7 +82,7 @@ export const LexicalBlockMapping = {
     jsx: (
       <div className={"tde-toolbar-heading-block"}>
         <span className={"icon"}>
-          <ChecklistOutlined />
+          <ListCheck />
         </span>
         <span className={"text"}>Check List</span>
       </div>

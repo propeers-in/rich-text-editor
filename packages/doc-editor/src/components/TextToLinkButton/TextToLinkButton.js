@@ -6,7 +6,7 @@ import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import { $isAtNodeEnd } from "@lexical/selection";
 import { keyDownCallback } from "../../utils/toolbarUtils";
 import IconButton from "../IconButton";
-import { LinkOutlined } from "@toddle-edu/ds-icons";
+import { Link } from 'lucide-react';
 import "./styles.scss";
 
 function getSelectedNode(selection) {
@@ -71,7 +71,7 @@ const TextToLinkButton = () => {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<LinkOutlined />}
+        icon={<Link />}
         onClick={handleLink}
         isActivated={isLink}
         size="small"

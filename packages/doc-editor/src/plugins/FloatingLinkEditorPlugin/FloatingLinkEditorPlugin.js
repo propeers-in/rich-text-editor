@@ -8,12 +8,8 @@ import {
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import IconButton from "../../components/IconButton";
-import {
-  CloseCircleOutlined,
-  CopyOutlined,
-  PencilOutlined,
-  SortOutlined,
-} from "@toddle-edu/ds-icons";
+
+import { CircleHelp, ClipboardCopy, Pencil, ArrowUpNarrowWide } from 'lucide-react';
 import {
   getMetadataMicrolink,
   getSelectedNode,
@@ -206,7 +202,7 @@ const FloatingLinkEditorPlugin = () => {
                 <div className="control-panel">
                   <IconButton
                     dsVersion="2.0"
-                    icon={<CopyOutlined />}
+                    icon={<ClipboardCopy />}
                     onClick={() => {
                       window.navigator.clipboard.writeText(linkUrl);
                     }}
@@ -218,7 +214,7 @@ const FloatingLinkEditorPlugin = () => {
                   />
                   <IconButton
                     dsVersion="2.0"
-                    icon={<PencilOutlined />}
+                    icon={<Pencil />}
                     onClick={() => setEditMode(true)}
                     onMouseDown={e => e.preventDefault()}
                     tooltip="Edit link"
@@ -228,7 +224,7 @@ const FloatingLinkEditorPlugin = () => {
                   />
                   <IconButton
                     dsVersion="2.0"
-                    icon={<CloseCircleOutlined />}
+                    icon={<CircleHelp />}
                     onClick={() =>
                       editor.dispatchCommand(TOGGLE_LINK_COMMAND, null)
                     }
@@ -244,7 +240,7 @@ const FloatingLinkEditorPlugin = () => {
                 <div className={"flex-column"}>
                   <div className={"flex-row"}>
                     <span className={"icon-square-20"}>
-                      <SortOutlined />
+                      <ArrowUpNarrowWide />
                     </span>
                     <span className={"suggestion-title"}>{urlData.title}</span>
                   </div>
