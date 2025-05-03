@@ -1,0 +1,48 @@
+.tde-font-size-control-wrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .control-btn-wrapper{
+    width: 24px;
+    height: 20px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.font-size-dropdown{
+  min-width: 50px;
+  .font-size-options-wrapper{
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow: auto;
+    .font-size-options{
+      min-width: 74px;
+      min-height: 36px;
+    }
+  }
+}
+
+.font-counter {
+  padding: 4px 0;
+  border: 1px solid rgba(230, 230, 230, 0.8);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 36px;
+  height: 28px;
+  text-align: center;
+}

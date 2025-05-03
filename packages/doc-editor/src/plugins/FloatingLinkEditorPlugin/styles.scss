@@ -1,0 +1,33 @@
+.link-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  justify-content: space-between;
+
+  .logo {
+    aspect-ratio: 1;
+    width: 20px;
+  }
+}
+
+.flex-end {
+  display: flex;
+  justify-content: end;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flex-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-square-20 {
+  width: 20px;
+  height: 20px;
+}

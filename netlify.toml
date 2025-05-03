@@ -1,0 +1,7 @@
+[build]
+  publish = "packages/playground/dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Basic-Auth = "admin password"

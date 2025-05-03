@@ -1,0 +1,392 @@
+/* Variables */
+$primary-color: #008392;
+$border-color: #ddd;
+$placeholder-color: #999;
+$box-shadow-focus: 0 0 0 2px #a6cdfe;
+$checked-border-color: rgb(61, 135, 245);
+$checked-bg-color: #3d87f5;
+$font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+/* ========== TEXT STYLES ========== */
+.tde-textUnderline {
+  text-decoration: underline;
+}
+
+.tde-textItalic {
+  font-style: italic;
+}
+
+.tde-textUppercase {
+  text-transform: uppercase;
+}
+
+.tde-textLowercase {
+  text-transform: lowercase;
+}
+
+.tde-textCapitalize {
+  text-transform: capitalize;
+}
+
+.tde-textStrikethrough {
+  text-decoration: line-through;
+}
+
+.tde-link {
+  color: $primary-color;
+  text-decoration: underline;
+}
+
+/* ========== PARAGRAPHS ========== */
+.tde-paragraph {
+  margin: 0 0 8px;
+}
+
+/* ========== LISTS ========== */
+.tde-list {
+  padding: 0;
+  margin: 0 0 8px;
+
+  &Unordered {
+    list-style-type: disc;
+    padding-left: 1.7em;
+
+    li {
+      padding-left: 0.5em;
+    }
+
+    &.tde-circle {
+      list-style-type: circle;
+    }
+
+    &.tde-square {
+      list-style-type: square;
+    }
+  }
+
+  &Ordered {
+    list-style-type: decimal;
+    padding-left: 1.75em;
+
+    li {
+      padding-left: 0.2em;
+    }
+
+    &.tde-upperAlpha {
+      list-style-type: upper-alpha;
+    }
+
+    &.tde-lowerAlpha {
+      list-style-type: lower-alpha;
+    }
+
+    &.tde-upperRoman {
+      list-style-type: upper-roman;
+    }
+
+    &.tde-lowerRoman {
+      list-style-type: lower-roman;
+    }
+  }
+
+  &Check {
+    list-style-type: none;
+    padding-left: 1.5em;
+
+    .tde-listItem {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: "☐";
+        margin-right: 8px;
+      }
+
+      &[data-checked="true"]::before {
+        content: "☑";
+      }
+    }
+  }
+
+  &Checklist {
+    padding: 0;
+
+    li {
+      padding-left: 1.7em;
+    }
+  }
+
+  &Item {
+    margin-bottom: 4px;
+
+    &Nested {
+      margin-left: 1em;
+    }
+  }
+
+  &Ordered,
+  &Unordered {
+    & .tde-listOrdered,
+    & .tde-listUnordered {
+      margin-bottom: 0;
+      padding-left: 1em;
+    }
+  }
+}
+
+/* ========== CHECK LISTS ========== */
+.tde-listItem-Checked,
+.tde-listItem-Unchecked {
+  --box-width: 16px;
+  --box-height: 16px;
+  position: relative;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  list-style-type: none;
+  outline: none;
+
+  &:before {
+    content: "";
+    width: var(--box-width);
+    height: var(--box-height);
+    top: 4px;
+    left: 2px;
+    cursor: pointer;
+    display: block;
+    background-size: cover;
+    position: absolute;
+    border-radius: 2px;
+  }
+
+  &[dir="rtl"]:before {
+    left: auto;
+    right: 0;
+  }
+
+  &:focus:before {
+    box-shadow: $box-shadow-focus;
+  }
+}
+
+.tde-listItem-Unchecked:before {
+  border: 1px solid #999;
+}
+
+.tde-listItem-Checked {
+  text-decoration: line-through;
+
+  &:before {
+    border: 1px solid $checked-border-color;
+    background-color: $checked-bg-color;
+    background-repeat: no-repeat;
+  }
+
+  &:after {
+    content: "";
+    cursor: pointer;
+    border-color: #fff;
+    border-style: solid;
+    position: absolute;
+    display: block;
+    top: 6px;
+    width: 6px;
+    left: 7px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-width: 0 2px 2px 0;
+  }
+}
+
+/* ========== TABLES ========== */
+.tde-str {
+  .tde-tableCell {
+    border: 1px solid #7e7e7e;
+    vertical-align: top;
+    text-align: start;
+    padding: 8px;
+    width: max-content;
+    min-width: 10px;
+    outline: none;
+  }
+}
+
+/* ========== BUTTONS ========== */
+.tde-btn-secondary {
+  display: flex;
+  width: 100%;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f6f6f6;
+  }
+}
+
+/* ========== HEADINGS ========== */
+
+.tde-headingH5{
+    font-size: 18px;
+    height: 28px;
+}
+
+.tde-headingH4{
+  font-size: 28px;
+  height: 40px;
+}
+
+.tde-headingH3{
+  font-size: 40px;
+  height: 56px;
+}
+
+/* ========== EDITOR LAYOUT ========== */
+.tde-editorContainer {
+  font-family: $font-family-default;
+  color: #222;
+  line-height: 1.5;
+  font-size: 16px;
+  border-radius: 8px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  height: 100vh;
+}
+
+.tde-scrollable-container {
+  overflow: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tde-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  flex-wrap: wrap;
+}
+
+.tde-anchor-element {
+  flex-grow: 1;
+  align-self: center;
+}
+
+.tde-contentEditable-wrapper {
+  height: 100%;
+  padding-bottom: 2rem;
+}
+
+.tde-contentEditable {
+  outline: none;
+  min-height: 150px;
+  line-height: 1.5;
+  padding: 40px;
+  margin: 32px;
+  border: 1px solid $border-color;
+  background-color: white;
+  height: 100%;
+  width: 800px;
+  max-width: 800px;
+  border-radius: 8px;
+  caret-color:currentColor;
+}
+
+.tde-placeholder {
+  color: $placeholder-color;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+  user-select: none;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  z-index: 10000;
+}
+
+.tde-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #eee;
+  margin: 0 4px;
+}
+
+.tde-fontcolor-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+}
+
+.color-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.color-grid {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.color-grid-cell {
+  aspect-ratio: 1 / 1;
+  width: 1rem;
+  display: block;
+  border-radius: 2px;
+}
+
+.tde-listItemNested{
+  list-style-type: none;
+}
+
+.tde-listOrdered__ol2{
+    list-style-type: upper-alpha;
+}
+
+.tde-listOrdered__ol3{
+  list-style-type: lower-alpha;
+}
+
+.tde-listOrdered__ol4{
+  list-style-type: upper-roman;
+}
+
+.tde-listOrdered__ol5{
+  list-style-type: lower-roman;
+}
+
+.tde-listItemNested::before{
+  display: none;
+}
+.tde-listItemNested::after{
+  display: none;
+}
+
+ul li,
+ol li {
+  --listitem-marker-font-size: 15px;
+  --listitem-marker-color: #000000;
+
+  &::marker {
+    font-size: var(--listitem-marker-font-size);
+    color: var(--listitem-marker-color);
+  }
+}
+
+
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
