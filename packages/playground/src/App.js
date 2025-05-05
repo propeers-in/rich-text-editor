@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { RichTextEditor } from "doc-editor";
-import "../../doc-editor/dist/main.css";
+import { RichTextEditor } from "rich-text-editor";
+import "../../rich-text-editor/dist/main.css";
 
 const App = () => {
   const [docContent, setDocContent] = useState("**Hello World**");

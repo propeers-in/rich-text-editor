@@ -7,15 +7,16 @@
     ]
   },
   "scripts": {
-    "dev": "npm --workspace=doc-editor run dev & npm --workspace=playground start",
-    "build": "yarn workspace doc-editor build",
+    "dev": "npm --workspace=rich-text-editor run dev & npm --workspace=playground start",
+    "build": "yarn workspace rich-text-editor build",
     "build:playground": "yarn workspace playground build",
     "start:playground": "yarn workspace playground start",
     "format": "prettier --write .",
     "lint:eslint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --ext .js,.jsx . --fix",
-    "deploy:doc-editor-1": "yarn build && yarn workspace playground deploy:doc-editor-1",
-    "deploy:doc-editor-2": "yarn build && yarn workspace playground deploy:doc-editor-2"
+    "deploy:rich-text-editor-1": "yarn build && yarn workspace playground deploy:rich-text-editor-1",
+    "deploy:rich-text-editor-2": "yarn build && yarn workspace playground deploy:rich-text-editor-2",
+    "postinstall": "cd node_modules/rich-text-editor && npm install && npm run build"
   },
   "dependencies": {
     "react": "^17.0.2",

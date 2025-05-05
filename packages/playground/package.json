@@ -6,11 +6,11 @@
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "format": "prettier --write . --ignore-path ../../.prettierignore",
-    "deploy:doc-editor-1": "yarn build && npx netlify-cli deploy --site 28189552-7700-4ccc-b48d-99ce67cfa13d --auth sw4_vcCpS3fJV_yjGXocsPg4dArB8QVAkKssdrunZcM --prod",
-    "deploy:doc-editor-2": "yarn build && npx netlify-cli deploy --site d4345d77-ab6e-421e-be8b-8233717f3638 --auth sw4_vcCpS3fJV_yjGXocsPg4dArB8QVAkKssdrunZcM --prod"
+    "deploy:rich-text-editor-1": "yarn build && npx netlify-cli deploy --site 28189552-7700-4ccc-b48d-99ce67cfa13d --auth sw4_vcCpS3fJV_yjGXocsPg4dArB8QVAkKssdrunZcM --prod",
+    "deploy:rich-text-editor-2": "yarn build && npx netlify-cli deploy --site d4345d77-ab6e-421e-be8b-8233717f3638 --auth sw4_vcCpS3fJV_yjGXocsPg4dArB8QVAkKssdrunZcM --prod"
   },
   "dependencies": {
-    "doc-editor": "*",
+    "rich-text-editor": "*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
