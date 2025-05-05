@@ -15,8 +15,7 @@
     "lint:eslint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --ext .js,.jsx . --fix",
     "deploy:rich-text-editor-1": "yarn build && yarn workspace playground deploy:rich-text-editor-1",
-    "deploy:rich-text-editor-2": "yarn build && yarn workspace playground deploy:rich-text-editor-2",
-    "postinstall": "cd node_modules/rich-text-editor && npm install && npm run build"
+    "deploy:rich-text-editor-2": "yarn build && yarn workspace playground deploy:rich-text-editor-2"
   },
   "dependencies": {
     "react": "^17.0.2",
