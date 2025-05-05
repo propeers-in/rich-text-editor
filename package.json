@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "npm --workspace=rich-text-editor run dev & npm --workspace=playground start",
-    "build": "yarn workspace rich-text-editor build",
+    "build": "npm --workspace=rich-text-editor build",
     "build:playground": "yarn workspace playground build",
     "start:playground": "yarn workspace playground start",
     "format": "prettier --write .",
