@@ -1,11 +1,16 @@
-import React from "react";
-import { DocEditor } from "doc-editor";
+import React, {useState} from "react";
+import { RichTextEditor } from "doc-editor";
 import "../../doc-editor/dist/main.css";
 
 const App = () => {
+  const [docContent, setDocContent] = useState("**Hello World**");
   return (
     // <div className="container">
-    <DocEditor />
+   
+  <RichTextEditor
+  value={docContent}
+  onChange={(updatedContent) => setDocContent(updatedContent)}
+  />
     // </div>
   );
 };

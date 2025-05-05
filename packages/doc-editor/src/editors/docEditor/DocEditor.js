@@ -16,6 +16,7 @@ import "./editor.scss";
 import ToolbarPlugin from "../../plugins/ToolbarPlugin";
 import React from "react";
 import FloatingLinkEditorPlugin from "../../plugins/FloatingLinkEditorPlugin/FloatingLinkEditorPlugin";
+import ControlledContentPlugin from "../../plugins/ControlledContentPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import AllNodes from "../../nodes/AllNodes";
 import { ALL_TRANSFORMERS } from "../../constants/transformers/MarkdownTransformer";
@@ -41,6 +42,8 @@ export default function DocEditor({
   initialConfig = {},
   children,
   className = "",
+  value = "",
+  onChange,
 }) {
   const editorConfig = getBaseEditorConfig(initialConfig);
   const anchorElemRef = useRef(null);
@@ -75,6 +78,7 @@ export default function DocEditor({
         </div>
 
         {/* Essential Plugins */}
+        <ControlledContentPlugin value={value} onChange={onChange} />
         <AutoFocusPlugin />
         <HistoryPlugin />
         <ListPlugin />
@@ -85,7 +89,7 @@ export default function DocEditor({
         <HorizontalRulePlugin />
         {/*<FloatingToolbarPlugin />*/}
         <FloatingLinkEditorPlugin />
-        <LocalStoragePlugin />
+       {/*  <LocalStoragePlugin /> */}
         <IndentLimitPlugin maxIndent={10} />
 
         <MarkdownShortcutPlugin transformers={ALL_TRANSFORMERS} />
