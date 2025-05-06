@@ -2,6 +2,7 @@
   "name": "rich-text-editor",
   "version": "0.1.0",
   "main": "dist/main.js",
+  "types": "main.d.ts",
   "files": [
     "dist"
   ],
