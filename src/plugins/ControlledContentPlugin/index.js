@@ -1,32 +1,31 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useEffect } from "react";
-import { $getRoot, $getSelection } from "lexical";
-import { $convertFromMarkdownString, $convertToMarkdownString } from "@lexical/markdown";
-import { ALL_TRANSFORMERS } from "../../constants/transformers/MarkdownTransformer";
 
 export default function ControlledContentPlugin({ value, onChange }) {
   const [editor] = useLexicalComposerContext();
 
- 
-  // Insert initial value
+   
   useEffect(() => {
-    if (!value) return;
-
-    editor.update(() => {
-      const root = $getRoot();
-      root.clear();
-      const nodes = $convertFromMarkdownString(value, ALL_TRANSFORMERS);
-      root.append(...nodes);
-    });
-  }, [value, editor]);
+       const savedState = value
+       if (savedState != null) {
+         editor.update(() => {
+           const parsed = editor.parseEditorState(savedState);
+           editor.setEditorState(parsed);
+         });
+       } else {
+         editor.update(() => {
+           const parsed = editor.parseEditorState(DEFAULT_EDITOR_TEXT);
+           editor.setEditorState(parsed);
+         });
+       }
+       editor.dispatchCommand(CLEAR_HISTORY_COMMAND, undefined);
+   }, [editor]);
 
   // Export changes
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
-      editorState.read(() => {
-        const markdown = $convertToMarkdownString(ALL_TRANSFORMERS);
-        onChange?.(markdown);
-      });
+      const json = JSON.stringify(editorState);
+      onChange?.(json);
     });
   }, [editor, onChange]);
 

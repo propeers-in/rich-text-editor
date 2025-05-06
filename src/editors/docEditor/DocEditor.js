@@ -50,7 +50,7 @@ export default function DocEditor({
       contentEditableWrapperClass: "",
       contentEditableClass : ""
   },
-  value = "",
+  value = null,
   onChange,
 }) {
   const editorConfig = getBaseEditorConfig(initialConfig);
