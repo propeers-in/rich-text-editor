@@ -38,10 +38,17 @@ export const getBaseEditorConfig = (config = {}) => ({
   editable: config.editable !== false,
 });
 
+
+
 export default function DocEditor({
   initialConfig = {},
   children,
-  className = "",
+  customClass = {
+      editorContainerClass : "",
+      scrollableContainerClass: "",
+      contentEditableWrapperClass: "",
+      contentEditableClass : ""
+  },
   value = "",
   onChange,
 }) {
@@ -51,25 +58,18 @@ export default function DocEditor({
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div
-        className={`tde-editorContainer ${className}`}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
+        className={`tde-editorContainer ${customClass.editorContainerClass}`}
       >
         <ToolbarPlugin />
-        <div className="tde-scrollable-container">
+        <div className={`tde-scrollable-container ${customClass.scrollableContainerClass}`}>
           <div ref={anchorElemRef} className="tde-anchor-element">
             <RichTextPlugin
               contentEditable={
                 <div
                   ref={anchorElemRef}
-                  className={`tde-contentEditable-wrapper`}
+                  className={`tde-contentEditable-wrapper ${customClass.contentEditableWrapperClass}`}
                 >
-                  <ContentEditable className="tde-contentEditable" />
+                  <ContentEditable className={`tde-contentEditable ${customClass.contentEditableClass}`} />
                 </div>
               }
               ErrorBoundary={LexicalErrorBoundary}

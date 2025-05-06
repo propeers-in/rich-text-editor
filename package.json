@@ -1,11 +1,10 @@
 {
   "name": "rich-text-editor",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/rich-text-editor",
+    "packages/playground"
+  ],
   "scripts": {
     "dev": "npm --workspace=rich-text-editor run dev & npm --workspace=playground start",
     "build": "npm --workspace=rich-text-editor run build",
