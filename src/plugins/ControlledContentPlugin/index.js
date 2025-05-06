@@ -1,5 +1,7 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useEffect } from "react";
+import { mergeRegister } from "@lexical/utils";
+import { CLEAR_HISTORY_COMMAND } from "lexical";
 
 export default function ControlledContentPlugin({ value, onChange }) {
   const [editor] = useLexicalComposerContext();
@@ -23,10 +25,11 @@ export default function ControlledContentPlugin({ value, onChange }) {
 
   // Export changes
   useEffect(() => {
-    return editor.registerUpdateListener(({ editorState }) => {
+    return mergeRegister(
+     editor.registerUpdateListener(({ editorState }) => {
       const json = JSON.stringify(editorState);
       onChange?.(json);
-    });
+    }));
   }, [editor, onChange]);
 
   return null;
