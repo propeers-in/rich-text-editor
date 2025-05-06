@@ -38,7 +38,7 @@ import { AddOutlined, TwoLinesOutlined } from "../../assets/icons";
 
 export const Divider = () => <div className={`tde-divider`} />;
 
-export default function ToolbarPlugin() {
+export default function ToolbarPlugin({className=""}) {
   const [editor] = useLexicalComposerContext();
   const [blockType, setBlockType] = useState("paragraph");
   const [alignment, setAlignment] = useState("left");
@@ -308,7 +308,7 @@ export default function ToolbarPlugin() {
   };
 
   return (
-    <div className={"tde-toolbar"}>
+    <div className={`tde-toolbar ${className}`}>
       <UndoButton />
 
       <RedoButton />
