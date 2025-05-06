@@ -151,6 +151,7 @@ const DropDown = props => {
               left: `${position.x}px`,
               top: `${position.y}px`,
               minWidth: `${position.minWidth}px`,
+              zIndex: 9999
             }}
           >
             {React.Children.map(props.children, child => {
