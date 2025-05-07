@@ -1,4 +1,5 @@
-@use '../../styles/mixin' as *;
+@use '../../styles/_mixin' as *;
+
 .tde-toolbar {
   display: flex;
   align-items: center;
@@ -144,7 +145,7 @@
   flex-direction: row;
   align-items: center;
   gap: 6px;
-
+  //background-color: red;
   svg {
     width: 16px;
     height: 16px;

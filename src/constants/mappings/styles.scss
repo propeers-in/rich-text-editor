@@ -1,3 +1,4 @@
+@use '../../styles/_mixin' as *;
 .tde-toolbar-heading-block {
   display: flex;
   align-items: center;
@@ -19,4 +20,17 @@
     font-size: 14px;
     font-weight: 500;
   }
+
+  @include respond-to("mobile") {
+    .icon {
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+   .text {
+    font-size: 10px;
+    font-weight: 400;
+   }
+  } 
 }

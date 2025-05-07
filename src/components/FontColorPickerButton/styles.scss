@@ -1,3 +1,4 @@
+@use '../../styles/_mixin' as *;
 .tde-font-color-trigger-parent {
   display: flex;
   height: 100%;
@@ -40,5 +41,15 @@
       transform: translateX(-50%);
       background-color: var(--font-color);
     }
+
+    @include respond-to("mobile") {
+      .icon{
+
+        svg {
+         width: 12px;
+         height: 12px;
+        }
+      }
+    } 
   }
 }

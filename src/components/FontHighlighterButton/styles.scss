@@ -3,6 +3,7 @@
   height: 100%;
   padding: 4px;
   border-radius: 2px;
+  align-items: end;
 
   &:hover {
     background-color: #f5f5f5;
@@ -21,16 +22,12 @@
     flex-direction: column;
     position: relative;
     align-items: center;
-    height: 20px;
-    width: 20px;
     align-self: center;
     justify-content: end;
     --font-color: #000000;
 
     svg {
       margin-bottom: 4px;
-      width: 16px;
-      height: 16px;
     }
 
     .underline {
