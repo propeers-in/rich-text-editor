@@ -35,13 +35,14 @@ import TextStyleFormattingButton from "../../components/TextStyleFormattingButto
 import FontHighlighterButton from "../../components/FontHighlighterButton/FontHighlighterButton";
 import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontalRuleNode";
 import { AddOutlined, TwoLinesOutlined } from "../../assets/icons";
-
+import useIsMobile from "../../hooks/useIsMobile"
 export const Divider = () => <div className={`tde-divider`} />;
 
 export default function ToolbarPlugin({className=""}) {
   const [editor] = useLexicalComposerContext();
   const [blockType, setBlockType] = useState("paragraph");
   const [alignment, setAlignment] = useState("left");
+  const isMobile = useIsMobile()
   const [textFormat, setTextFormat] = useState({
     isBold: false,
     isItalic: false,
@@ -130,7 +131,7 @@ export default function ToolbarPlugin({className=""}) {
   const HeadingDropdown = () => {
     return (
       <div className={"tde-dropdownOverlay"}>
-        <div className={"tde-toolbar-dropdown-default"}>
+        <div className={"tde-toolbar-dropdown-default gap-y-1"}>
           {Object.entries(LexicalBlockMapping).map(entry => {
             return (
               <Button
@@ -156,7 +157,7 @@ export default function ToolbarPlugin({className=""}) {
   const InsertDropdown = () => {
     return (
       <div className={"tde-dropdownOverlay"}>
-        <div className={"tde-toolbar-dropdown-default"}>
+        <div className={"tde-toolbar-dropdown-default gap-y-1"}>
           <Button
             variant="neutral"
             type="plain"
@@ -182,7 +183,7 @@ export default function ToolbarPlugin({className=""}) {
   const TextPositioningDropDown = () => {
     return (
       <div className={"tde-dropdownOverlay"}>
-        <div className={"tde-toolbar-dropdown-nb"}>
+        <div className={"tde-toolbar-dropdown-nb gap-y-1"}>
           <Button
             variant="neutral"
             type="plain"
@@ -266,7 +267,7 @@ export default function ToolbarPlugin({className=""}) {
 
         <span className={"tde-hr"}></span>
 
-        <div className={"tde-toolbar-dropdown-nt"}>
+        <div className={"tde-toolbar-dropdown-nt gap-y-1"}>
           <Button
             variant="neutral"
             type="plain"
@@ -322,7 +323,7 @@ export default function ToolbarPlugin({className=""}) {
               <div className={"tde-dropdown-btn"}>
                 <div className={"tde-toolbar-heading-block"}>
                   <span className={"icon"}>
-                    <AddOutlined />
+                    <AddOutlined size={14} />
                   </span>
                   <span className={"text"}>Insert</span>
                 </div>
@@ -385,7 +386,7 @@ export default function ToolbarPlugin({className=""}) {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<Bold />}
+        icon={<Bold size={isMobile ? 12 : 16}/>}
         onClick={() => formatText("bold")}
         isActivated={textFormat.isBold}
         size="small"
@@ -395,7 +396,7 @@ export default function ToolbarPlugin({className=""}) {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<Italic />}
+        icon={<Italic size={isMobile ? 12 : 16}/>}
         onClick={() => formatText("italic")}
         isActivated={textFormat.isItalic}
         size="small"
@@ -405,7 +406,7 @@ export default function ToolbarPlugin({className=""}) {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<Underline />}
+        icon={<Underline size={isMobile ? 12 : 16}/>}
         onClick={() => formatText("underline")}
         isActivated={textFormat.isUnderline}
         size="small"

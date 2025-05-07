@@ -10,14 +10,14 @@ import DropDown from "../DropDown";
 import "./styles.scss";
 import { ChevronDown } from 'lucide-react';
 import { MinusSquareOutlined, TextColorOutlined } from "../../assets/icons";
-
+import useIsMobile from "../../hooks/useIsMobile"
 const DEFAULT_FONT_COLOR = "#000000";
 
 const FontColorPickerButton = () => {
   const [editor] = useLexicalComposerContext();
   const [fontColor, setFontColor] = useState(DEFAULT_FONT_COLOR);
   const fontColorRef = useRef(null);
-
+  const isMobile = useIsMobile()
   const handleUpdate = useCallback(
     newFontColor => {
       setFontColor(newFontColor);
@@ -130,15 +130,17 @@ const FontColorPickerButton = () => {
     <DropDown
       trigger={() => (
         <button className={" tde-font-color-trigger-parent "}>
-          <div className={"tde-font-color-trigger"}>
+          <div className={"tde-font-color-trigger items-end"}>
             <div className={"icon"}>
-              <TextColorOutlined />
+              <TextColorOutlined width={isMobile ? 12 : 16} height={isMobile ? 12 : 16}/>
               <span
                 className="underline"
                 style={{ "--font-color": fontColor }}
               />
             </div>
-            <ChevronDown />
+            <div>
+            <ChevronDown size={isMobile ? 12 : 16}/>
+            </div>
           </div>
         </button>
       )}

@@ -9,13 +9,14 @@ import {
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import IconButton from "../../components/IconButton";
 
-import { CircleHelp, ClipboardCopy, Pencil, ArrowUpNarrowWide } from 'lucide-react';
+import { CircleMinus, ClipboardCopy, Pencil, ArrowUpNarrowWide, Compass } from 'lucide-react';
 import {
   getMetadataMicrolink,
   getSelectedNode,
 } from "../../utils/toolbarUtils";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import "./styles.scss";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const HTTP_PATTERN = /^https?:\/\//;
 
@@ -43,7 +44,7 @@ const FloatingLinkEditorPlugin = () => {
   const [urlData, setUrlData] = useState({});
   const [updatedUrlLink, setUpdatedUrlLink] = useState("");
   const isLinkRef = useRef(null);
-
+  const isMobile = useIsMobile()
   const $updateLinkEditor = useCallback(() => {
     const selection = $getSelection();
     if ($isRangeSelection(selection)) {
@@ -180,16 +181,16 @@ const FloatingLinkEditorPlugin = () => {
             </div>
           ) : (
             <div className={"flex-column"}>
-              <div className="link-input">
-                <div className={"flex-row"}>
-                  <img
+              <div className="link-input items-center">
+                <div className={"flex-row items-center"}>
+                 {urlData?.logo?.url ?  <img
                     src={urlData?.logo?.url ?? "#"}
                     alt="logo"
                     className="logo"
                     style={{
                       borderRadius: "5px",
                     }}
-                  />
+                  /> : <Compass size={isMobile ? 12: 16}/>}
                   <a
                     href={linkUrl}
                     target="_blank"
@@ -202,7 +203,7 @@ const FloatingLinkEditorPlugin = () => {
                 <div className="control-panel">
                   <IconButton
                     dsVersion="2.0"
-                    icon={<ClipboardCopy />}
+                    icon={<ClipboardCopy size={isMobile ? 12: 16}/>}
                     onClick={() => {
                       window.navigator.clipboard.writeText(linkUrl);
                     }}
@@ -214,7 +215,7 @@ const FloatingLinkEditorPlugin = () => {
                   />
                   <IconButton
                     dsVersion="2.0"
-                    icon={<Pencil />}
+                    icon={<Pencil size={isMobile ? 12: 16}/>}
                     onClick={() => setEditMode(true)}
                     onMouseDown={e => e.preventDefault()}
                     tooltip="Edit link"
@@ -224,7 +225,7 @@ const FloatingLinkEditorPlugin = () => {
                   />
                   <IconButton
                     dsVersion="2.0"
-                    icon={<CircleHelp />}
+                    icon={<CircleMinus size={isMobile ? 12: 16}/>}
                     onClick={() =>
                       editor.dispatchCommand(TOGGLE_LINK_COMMAND, null)
                     }

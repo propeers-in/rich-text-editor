@@ -8,16 +8,16 @@ import "./styles.scss";
 import FontHighlightGridValues from "./FontHighlightGridVals";
 import { $getSelection, $isRangeSelection } from "lexical";
 import { $patchStyleText } from "@lexical/selection";
-import { ChevronDown } from 'lucide-react';
-import { HighlighterOutlined, MinusSquareOutlined } from "../../assets/icons";
-
+import { ChevronDown, Highlighter } from 'lucide-react';
+import { MinusSquareOutlined } from "../../assets/icons";
+import useIsMobile from "../../hooks/useIsMobile"
 const DEFAULT_FONT_COLOR = "rgb(255,196,0)";
 
 const FontHighlighterButton = () => {
   const [editor] = useLexicalComposerContext();
   const [fontColor, setFontColor] = useState(DEFAULT_FONT_COLOR);
   const fontColorRef = useRef(null);
-
+  const isMobile = useIsMobile()
   const handleUpdate = useCallback(
     newFontColor => {
       setFontColor(newFontColor);
@@ -109,7 +109,7 @@ const FontHighlighterButton = () => {
           >
 
             <div className={"tde-toolbar-heading-block"}>
-              <MinusSquareOutlined width={20} height={20} />
+              <MinusSquareOutlined width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
               <span
                 className={"text"}
                 style={{
@@ -128,16 +128,16 @@ const FontHighlighterButton = () => {
   return (
     <DropDown
       trigger={() => (
-        <button className={"tde-font-highlight-trigger-parent"}>
-          <div className={"tde-font-highlight-trigger"}>
+        <button className={`tde-font-highlight-trigger-parent ${isMobile ? "mt-1" : ""}`}>
+          <div className={"tde-font-highlight-trigger items-end"}>
             <div className={"icon"}>
-              <HighlighterOutlined />
+              <Highlighter size={isMobile ? 12 : 16} />
               <span
                 className="underline"
                 style={{ "--font-color": fontColor }}
               />
             </div>
-            <ChevronDown />
+            <ChevronDown size={isMobile ? 12 : 16}/>
           </div>
         </button>
       )}

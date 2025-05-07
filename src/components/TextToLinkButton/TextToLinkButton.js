@@ -7,6 +7,7 @@ import { $isAtNodeEnd } from "@lexical/selection";
 import { keyDownCallback } from "../../utils/toolbarUtils";
 import IconButton from "../IconButton";
 import { Link } from 'lucide-react';
+import useIsMobile from "../../hooks/useIsMobile"
 import "./styles.scss";
 
 function getSelectedNode(selection) {
@@ -28,7 +29,7 @@ function getSelectedNode(selection) {
 const TextToLinkButton = () => {
   const [isLink, setIsLink] = useState(false);
   const [editor] = useLexicalComposerContext();
-
+  const isMobile = useIsMobile()
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
@@ -71,7 +72,7 @@ const TextToLinkButton = () => {
         variant="neutral"
         type="plain"
         dsVersion="2.0"
-        icon={<Link />}
+        icon={<Link size = {isMobile ? 12 : 16}/>}
         onClick={handleLink}
         isActivated={isLink}
         size="small"
