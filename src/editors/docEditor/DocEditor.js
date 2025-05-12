@@ -10,6 +10,7 @@ import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import { TabIndentationPlugin } from "@lexical/react/LexicalTabIndentationPlugin";
 import { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 import { HorizontalRulePlugin } from "@lexical/react/LexicalHorizontalRulePlugin";
+import { EditablePlugin } from "../../plugins/EditablePlugin";
 import { useRef } from "react";
 import theme from "./theme";
 import "./editor.scss";
@@ -23,6 +24,7 @@ import { ALL_TRANSFORMERS } from "../../constants/transformers/MarkdownTransform
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import LocalStoragePlugin from "../../plugins/LocalStoragePlugin/LocalStoragePlugin";
 import IndentLimitPlugin from "../../plugins/IndentLimitPlugin/IndentLimitPlugin";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
 // Default error handler
 const onError = error => {
@@ -52,16 +54,18 @@ export default function DocEditor({
   },
   value = null,
   onChange,
+  isEditable
 }) {
   const editorConfig = getBaseEditorConfig(initialConfig);
   const anchorElemRef = useRef(null);
+ const [editor] = useLexicalComposerContext();
 
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div
         className={`tde-editorContainer ${customClass?.editorContainerClass ?? ""}`}
       >
-        <ToolbarPlugin  className={customClass?.toolbarClass ?? ""}/>
+       {editor.isEditable() ? <ToolbarPlugin  className={customClass?.toolbarClass ?? ""}/> : null}
         <div className={`tde-scrollable-container ${customClass?.scrollableContainerClass ?? ""}`}>
           <div ref={anchorElemRef} className="tde-anchor-element">
             <RichTextPlugin
@@ -80,6 +84,7 @@ export default function DocEditor({
 
         {/* Essential Plugins */}
         <ControlledContentPlugin value={value} onChange={onChange} />
+        <EditablePlugin isEditable={isEditable} />
         <AutoFocusPlugin />
         <HistoryPlugin />
         <ListPlugin />
