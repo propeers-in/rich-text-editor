@@ -63,6 +63,5 @@ module.exports = {
       babelLoader,
     ],
   },
-  externals: ["react", "react-dom"],
   stats: "minimal",
 };
