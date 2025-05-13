@@ -24,7 +24,6 @@ import { ALL_TRANSFORMERS } from "../../constants/transformers/MarkdownTransform
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import LocalStoragePlugin from "../../plugins/LocalStoragePlugin/LocalStoragePlugin";
 import IndentLimitPlugin from "../../plugins/IndentLimitPlugin/IndentLimitPlugin";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
 // Default error handler
 const onError = error => {
@@ -54,18 +53,17 @@ export default function DocEditor({
   },
   value = null,
   onChange,
-  isEditable
+  isEditable=false
 }) {
   const editorConfig = getBaseEditorConfig(initialConfig);
   const anchorElemRef = useRef(null);
- const [editor] = useLexicalComposerContext();
 
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div
         className={`tde-editorContainer ${customClass?.editorContainerClass ?? ""}`}
       >
-       {editor.isEditable() ? <ToolbarPlugin  className={customClass?.toolbarClass ?? ""}/> : null}
+       {isEditable ? <ToolbarPlugin  className={customClass?.toolbarClass ?? ""}/> : null}
         <div className={`tde-scrollable-container ${customClass?.scrollableContainerClass ?? ""}`}>
           <div ref={anchorElemRef} className="tde-anchor-element">
             <RichTextPlugin
